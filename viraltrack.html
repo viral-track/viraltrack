@@ -156,7 +156,34 @@
 
 </head><body></textarea>
 <script>/*<![CDATA[*/
-xAR.gC("_DL")&&(document.body.classList.add("onDL"),Defer((()=>{document.querySelectorAll(".app_l > [data-link]").forEach((t=>{t.addEventListener("click",(()=>{const e=Number(t.dataset.tmo),a=!isNaN(e)&&e,o="Please wait",s=t.querySelector(".i > span[data-text]"),n=t.dataset.link,l=t.dataset.alink,i=t.dataset.blink,d=[n];l&&d.push(l),i&&d.push(i);const c=d[Math.floor(Math.random()*d.length)];if(a){if(!t.classList.contains("o")){t.classList.add("o");let e=a;s&&(s.dataset.text=`${o} (${e})`);const n=setInterval((()=>{e-=1,s&&(s.dataset.text=`${o} (${e})`),e<=0&&(clearInterval(n),s&&(s.dataset.text="Downloaded.."),t.classList.remove("o"),location.href=c)}),1e3)}}else window.open(c),setTimeout((()=>window.location.href=location.origin),1e3)}))}))})));
+xAR.gC("_DL") && (document.body.classList.add("onDL"), Defer(() => {
+    document.querySelectorAll(".app_l > [data-link]").forEach((t => {
+        t.addEventListener("click", (() => {
+            const e = Number(t.dataset.tmo),
+                a = !isNaN(e) && e,
+                o = "Please wait",
+                s = t.querySelector(".i > span[data-text]"),
+                n = t.dataset.link,
+                l = t.dataset.alink,
+                i = t.dataset.blink,
+                d = [n];
+            l && d.push(l), i && d.push(i);
+            const c = d[Math.floor(Math.random() * d.length)];
+            if (a) {
+                if (!t.classList.contains("o")) {
+                    t.classList.add("o");
+                    let e = a;
+                    s && (s.dataset.text = `${o} (${e})`);
+                    const n = setInterval(() => {
+                        e -= 1, s && (s.dataset.text = `${o} (${e})`), e <= 0 && (clearInterval(n), s && (s.dataset.text = "Downloaded.."), t.classList.remove("o"), window.location.href = c)
+                    }, 1e3)
+                }
+            } else {
+                window.location.href = c; // Direct redirect
+            }
+        }))
+    }))
+}));
 /*]]>*/</script>
 
 <div class='main'>
